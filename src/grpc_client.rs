@@ -16,7 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let response = client.process_payment(request).await?;
     println!("RESPONSE={:?}", response.into_inner());
     
-    let mut transaction_client = TransactionServiceClient::connect("http//[::1]:50051").await?;
+    let mut transaction_client = TransactionServiceClient::connect("http://[::1]:50051").await?;
     let request = tonic::Request::new(TransactionRequest {
         user_id: "user_123".to_string(),
     });
